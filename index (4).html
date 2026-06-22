@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>College Admission Form</h2>
+
+    <form id="admissionForm">
+        <label>Student Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" id="phone" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob" required>
+
+        <label>Gender:</label>
+        <select id="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Course:</label>
+        <select id="course" required>
+            <option value="">Select Course</option>
+            <option>BCA</option>
+            <option>B.Sc</option>
+            <option>B.Com</option>
+            <option>B.Tech</option>
+            <option>BA</option>
+        </select>
+
+        <label>Address:</label>
+        <textarea id="address" rows="3" required></textarea>
+
+        <button type="submit">Submit Admission Form</button>
+    </form>
+
+    <div id="output"></div>
+</div>
+
+<script>
+document.getElementById("admissionForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let dob = document.getElementById("dob").value;
+    let gender = document.getElementById("gender").value;
+    let course = document.getElementById("course").value;
+    let address = document.getElementById("address").value;
+
+    let output = document.getElementById("output");
+    output.style.display = "block";
+    output.innerHTML = `
+        <h3>Admission Submitted Successfully!</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Date of Birth:</strong> ${dob}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Course:</strong> ${course}</p>
+        <p><strong>Address:</strong> ${address}</p>
+    `;
+});
+</script>
+
+</body>
+</html>
